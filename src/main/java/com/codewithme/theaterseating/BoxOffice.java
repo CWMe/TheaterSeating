@@ -11,6 +11,10 @@ import java.util.Scanner;
  * per row. Then they are given the option to reserve and purchase them.
  */
 public class BoxOffice implements TicketService {
+    
+    public BoxOffice() {
+        
+    }
 
     static int[][] Theater_seats = {
         {10, 10, 10, 10},
@@ -19,6 +23,7 @@ public class BoxOffice implements TicketService {
         {40, 40, 40, 40}
     };
 
+    @Override
     public int numSeatsAvailable() {
         //-----------Printing the Theater Seats 2D Array----------\\
         int freeSeats = 0;
@@ -43,6 +48,7 @@ public class BoxOffice implements TicketService {
      * CONFIRMED/PURCHASED seat gets a cost of 0 dollars implying it is
      * gone/sold out.
      */
+    @Override
     public SeatHold findAndHoldSeats(int numSeats, String customerEmail) {
 
         // The "Ticket_Conductor" Scanner Class Instance mirrors the front desk staff in this program that takes the order from the customer.
@@ -91,6 +97,7 @@ public class BoxOffice implements TicketService {
         return null;
     }
 
+    @Override
     public String reserveSeats(int numSeats, String customerEmail) {
 
         //------------------------------Seat Confirmation---------------------------\\
