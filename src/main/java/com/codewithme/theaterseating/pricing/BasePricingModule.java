@@ -73,8 +73,6 @@ public abstract class BasePricingModule implements PricingModule {
         
         int rowDiff = Math.abs(venue.getOptimumRow() - row);
         int seatDiff = (int) Math.ceil(Math.abs(venue.getOptimumSeat() - seat));
-        System.out.println("Row Diff: " + rowDiff);
-        System.out.println("Seat Diff: " + seatDiff);
         
         return Precision.round(((double) maxPrice - (double) ((rowDiff + seatDiff) * priceChange)), 2);
     }

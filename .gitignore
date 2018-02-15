@@ -21,3 +21,4 @@ private/
 logs/
 
 .DS_Store/
+/nbproject/

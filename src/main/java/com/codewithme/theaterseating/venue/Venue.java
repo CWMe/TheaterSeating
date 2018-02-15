@@ -6,8 +6,6 @@ package com.codewithme.theaterseating.venue;
  * 
  * This class is abstract to prevent instantiation of it.  Developers should use 
  * its subclasses.
- * 
- * @author bisoldi
  */
 public abstract class Venue {
     
