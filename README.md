@@ -13,7 +13,7 @@ your IDE, or from within your IDE.
 
 If building from the command line, type the following from the root directory of this project:
 
-   mvn clean install
+```mvn clean install```
 
 # Running
 
@@ -21,4 +21,4 @@ This application uses the Maven Shade Plugin to build a shaded jar that contains
 
 You can either run the application from within your IDE or from the command line by typing the following from the root directory of this project:
 
-   java -jar target/TheaterSeating-1.0-SNAPSHOT.jar
+```java -jar target/TheaterSeating-1.0-SNAPSHOT.jar```
