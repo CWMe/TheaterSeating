@@ -6,21 +6,22 @@ package com.codewithme.theaterseating.venue;
  * 
  * This class is abstract to prevent instantiation of it.  Developers should use 
  * its subclasses.
- * 
- * @author bisoldi
  */
 public abstract class Venue {
+    
+    public enum VENUE_TYPE {
+        LIVE_THEATER,
+        MOVIE_THEATER
+    };
 
     private final int numRows;
     private final int numSeats;
-    private final int groupingSize;
     private final int optimumRow;
     private final int optimumSeat;
     
-    protected Venue(int numRows, int numSeats, int groupingSize, int optimumRow, int optimumSeat) {
+    protected Venue(int numRows, int numSeats, int optimumRow, int optimumSeat) {
         this.numRows = numRows;
         this.numSeats = numSeats;
-        this.groupingSize = groupingSize;
         this.optimumRow = optimumRow;
         this.optimumSeat = optimumSeat;
     }
@@ -31,10 +32,6 @@ public abstract class Venue {
 
     public int getNumSeats() {
         return numSeats;
-    }
-
-    public int getGroupingSize() {
-        return groupingSize;
     }
 
     public int getOptimumRow() {

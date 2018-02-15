@@ -1,6 +1,7 @@
 package com.codewithme.theaterseating.pricing;
 
 import com.codewithme.theaterseating.venue.Venue;
+import org.apache.commons.math3.util.Precision;
 
 public class FirstShowingPricingModule extends BasePricingModule {
 
@@ -15,7 +16,7 @@ public class FirstShowingPricingModule extends BasePricingModule {
     
     @Override
     public double priceSeat(int row, int seat) {
-        return super.priceSeat(row, seat) * 5.0;
+        return Precision.round((super.priceSeat(row, seat) * 5.0), 2);
     }
     
 }

@@ -16,9 +16,4 @@ public class HolidayPricingModule extends BasePricingModule {
         return SHOW_TYPE.HOLIDAY;
     }
     
-    @Override
-    public double priceSeat(int row, int seat) {
-        return super.priceSeat(row, seat) / 2.0;
-    }
-    
 }

@@ -2,11 +2,10 @@ package com.codewithme.theaterseating.venue;
 
 public class LiveTheater extends Venue {
     
-    private static final int GROUPING_SIZE = 2;
     private static final int OPTIMUM_ROW = 1;
     
     public LiveTheater(int numRows, int numSeats) {
-        super(numRows, numSeats, numRows, OPTIMUM_ROW, numSeats / 2 + 1);
+        super(numRows, numSeats, OPTIMUM_ROW, numSeats / 2 + 1);
     }
 
     @Override
@@ -16,7 +15,7 @@ public class LiveTheater extends Venue {
 
     @Override
     public int getMaxSeatDifference() {
-        return Math.round(getNumSeats() / 2 / GROUPING_SIZE);
+        return Math.round(getNumSeats() / 2);
     }
     
 }
