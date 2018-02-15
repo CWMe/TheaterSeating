@@ -1,6 +1,12 @@
 package com.codewithme.theaterseating;
 
+import com.codewithme.theaterseating.pricing.FirstShowingPricingModule;
+import com.codewithme.theaterseating.pricing.HolidayPricingModule;
+import com.codewithme.theaterseating.pricing.MatineePricingModule;
+import com.codewithme.theaterseating.pricing.NormalPricingModule;
 import com.codewithme.theaterseating.pricing.PricingModule;
+import com.codewithme.theaterseating.venue.LiveTheater;
+import com.codewithme.theaterseating.venue.MovieTheater;
 import com.codewithme.theaterseating.venue.Venue;
 import de.jollyday.HolidayManager;
 import java.time.LocalDateTime;
@@ -19,13 +25,13 @@ public class PricingModuleBuilder {
         
         switch (type) {
             case LIVE_THEATER:
-                // Instantiate and set the Live Theater class
+                venue = new LiveTheater(numRows, numSeats);
                 
             case MOVIE_THEATER:
-                // Instantiate and set the Movie Theater class
+                venue = new MovieTheater(numRows, numSeats);
                 
             default:
-                // Instantiate and set the Movie Theater class
+                venue = new MovieTheater(numRows, numSeats);
         }
     }
     
@@ -48,24 +54,24 @@ public class PricingModuleBuilder {
             
         // Uses the Jollyday library to check to see if the showdate is a holiday
         if (holidayManager.isHoliday(showtime.toLocalDate())) {
-            // Instantiate and set the Holiday Pricing Module
+            pricingModule = new HolidayPricingModule(venue);
             return this;
         }
         
         // If the show (start) time is before 1pm (13th hour)
         if (showtime.getHour() < 13) {
-            // Instantiate and set the Matinee Pricing Module
+            pricingModule = new MatineePricingModule(venue);
             return this;
         }
         
         // We don't have a good way to determine first showing, so just "randomly"
         // choose a number 0 > x < 10 and if it's 7, it's a first showing
         if (random.nextInt(10) == 7) {
-            // Instantiate and set the First Showing Pricing Module
+            pricingModule = new FirstShowingPricingModule(venue);
             return this;
         }
         
-        // Instantiate and set the Normal Pricing Module
+        pricingModule = new NormalPricingModule(venue);
         return this;
     }
     
